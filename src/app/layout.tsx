@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WHATBYTES",
+  title: "WhatBytes",
   description:
     "Whatbytes questions and answers dashboard. Test your skills and compare with other tech talents",
 };
