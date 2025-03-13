@@ -1,5 +1,6 @@
 import React from 'react'
 import TestSummaryCard from './TestSummaryCard'
+import StatisticsCard from './StatisticsCard'
 
 const MainSection = () => {
   return (
@@ -8,6 +9,7 @@ const MainSection = () => {
         <section className='flex flex-wrap'>
           <div className='flex flex-col'>
             <TestSummaryCard />
+            <StatisticsCard />
           </div>
         </section>
     </section>
