@@ -22,7 +22,7 @@ import { GlobalContext, UpdateType } from "@/context/GlobalContext";
 //   { id: "3", title: "Current Score (out of 15)", value: "10" },
 // ];
 const UpdateScoreModal = () => {
-  const { error, updates, changeValues, updateValues } = useContext(GlobalContext);
+  const { error, setError, updates, changeValues, updateValues } = useContext(GlobalContext);
 
 
   return (
@@ -44,7 +44,23 @@ const UpdateScoreModal = () => {
           />
         </div>
         <div className="flex flex-col justify-center space-x-2 gap-5">
-          {updates.map((update: UpdateType) => (
+          {updates.map((update: UpdateType) => {
+            const newUpdate = updates[Number(update.id) - 1]
+
+            if (newUpdate.value === "" && newUpdate.title === "Rank") {
+              setError(`Required | ${newUpdate.title} must be number`)
+            }
+
+            if (newUpdate.value === "" && newUpdate.title === "Percentile") {
+              setError(`Required | ${newUpdate.title} 0 - 200`)
+            }
+
+            if (newUpdate.value === "" && newUpdate.title.includes("Score")) {
+              setError(`Required | Score 0 - 15`)
+            }
+            
+            
+            return (
             <div
               key={update.id}
               className="flex justify-between gap-5 space-x-5 w-full"
@@ -63,10 +79,10 @@ const UpdateScoreModal = () => {
                 value={update.value}
                 onChange={(event) => changeValues(update.id, event)}
               />
-              {updates[Number(update.id) - 1].value === "" && <span className="text-red-600 text-xs">{error}</span>}
+              {updates[Number(update.id) - 1].value === "" && <span className="text-red-600 text-xs text-center w-full">{error}</span>}
               </p>
             </div>
-          ))}
+          )})}
         </div>
         <DialogFooter className="sm:justify-end">
           <DialogClose asChild>
