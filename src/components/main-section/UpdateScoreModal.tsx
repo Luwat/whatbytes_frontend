@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useContext } from "react";
 import {
@@ -22,7 +22,8 @@ import { GlobalContext, UpdateType } from "@/context/GlobalContext";
 //   { id: "3", title: "Current Score (out of 15)", value: "10" },
 // ];
 const UpdateScoreModal = () => {
-  const {updates, changeValues, updateValues} = useContext(GlobalContext)
+  const { error, updates, changeValues, updateValues } = useContext(GlobalContext);
+
 
   return (
     <Dialog>
@@ -44,26 +45,47 @@ const UpdateScoreModal = () => {
         </div>
         <div className="flex flex-col justify-center space-x-2 gap-5">
           {updates.map((update: UpdateType) => (
-            <div key={update.id} className="flex justify-between gap-5 space-x-5 w-full">
+            <div
+              key={update.id}
+              className="flex justify-between gap-5 space-x-5 w-full"
+            >
               <p className="flex gap-2 items-center">
                 <span>{update.id}</span>
                 <Label htmlFor={update.title}>
                   Update your <strong>{update.title}</strong>
                 </Label>
               </p>
-              <Input className="w-36 border font-bold border-[#132277] shadow-none" ref={update.ref} id={update.title} value={update.value} onChange={(event) => changeValues(update.id, event)}/>
+              <p>
+              <Input
+                className={`w-36 border font-bold border-[#132277] shadow-none ${(updates[Number(update.id) - 1].value === "") && 'border-red-600'}`}
+                ref={update.ref}
+                id={update.title}
+                value={update.value}
+                onChange={(event) => changeValues(update.id, event)}
+              />
+              {updates[Number(update.id) - 1].value === "" && <span className="text-red-600 text-xs">{error}</span>}
+              </p>
             </div>
           ))}
         </div>
         <DialogFooter className="sm:justify-end">
           <DialogClose asChild>
-            <Button type="button" className="text-[#132277] bg-white border border-[#132277] hover:bg-white hover:text-[#13285F]">
+            <Button
+              type="button"
+              className="text-[#132277] bg-white border border-[#132277] hover:bg-white hover:text-[#13285F]"
+            >
               Cancel
             </Button>
           </DialogClose>
-          <Button type="submit" className="bg-[#132277] hover:bg-[#13285F]" onClick={updateValues}>
+          <DialogClose asChild>
+          <Button
+            type="submit"
+            className="bg-[#132277] hover:bg-[#13285F]"
+            onClick={updateValues}
+          >
             Save <ArrowRight />
           </Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

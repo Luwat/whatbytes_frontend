@@ -7,11 +7,13 @@ export interface UpdateType {
   value: string;
   ref: React.RefObject<HTMLInputElement | null>
 }
+
 interface contextTypeProps {
   updates: UpdateType[];
-  changeValues: (id: string, event: any) => void;
+  changeValues: (id: string, event: React.ChangeEvent<HTMLInputElement>) => void;
   updateValues: () => void;
   error: string,
+  setError: React.Dispatch<React.SetStateAction<string>>,
   updatedRank: string,
   updatedPercentile: string,
   updatedScore: string,
@@ -23,6 +25,7 @@ export const GlobalContext = createContext<contextTypeProps>({
   changeValues: () => {},
   updateValues: () => {},
     error: "",
+    setError: () => {},
     updatedRank: "",
     updatedPercentile: "",
     updatedScore: "",
@@ -48,20 +51,13 @@ export default function GlobalContextProvider({
   const [updatedScore, setUpdatedScore] = useState("10");
   const [error, setError] = useState("");
 
-  const changeValues = (id: string, event: any) => {
+  const changeValues = (id: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setUpdates((prevUpdates) => {
       const updatedValues = [...prevUpdates];
       const updatedValueIndex = updatedValues.findIndex(
         (item) => item.id === id
       );
       const updatedValue = { ...updatedValues[updatedValueIndex] };
-      if (updatedValue.value === "" && updatedValue.title === "Rank") {
-        setError(`required | ${updatedValue.title} should be a number`);
-      }
-      if (updatedValue.value === "" && updatedValue.title === "Percentile") {
-        setError(`required | ${updatedValue.title} 0-100`);
-      }
-
       if (updatedValue.title === "Rank" && Number(updatedValue.value) > 0) {
         setUpdatedRank(updatedValue.value)
       } else if (
@@ -93,6 +89,7 @@ export default function GlobalContextProvider({
     changeValues,
     updateValues,
     error,
+    setError,
     updatedRank,
     updatedPercentile,
     updatedScore
