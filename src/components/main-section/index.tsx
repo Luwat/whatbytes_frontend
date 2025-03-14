@@ -3,6 +3,7 @@ import TestSummaryCard from './TestSummaryCard'
 import StatisticsCard from './StatisticsCard'
 import Syllabus from './Syllabus'
 import ComparisonGraph from './ComparisonGraph'
+import QuestionAnalysis from './QuestionAnalysis'
 
 const MainSection = () => {
   return (
@@ -16,6 +17,7 @@ const MainSection = () => {
           </div>
           <div className='flex flex-col w-2/5'>
             <Syllabus />
+            <QuestionAnalysis />
           </div>
         </section>
     </section>
