@@ -1,5 +1,4 @@
 import React from "react";
-// import { CardContent } from "../ui/card";
 import Image from "next/image";
 import CardWrapper from "./CardWrapper";
 import UpdateScoreModal from "./UpdateScoreModal";

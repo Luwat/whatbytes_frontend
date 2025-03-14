@@ -6,7 +6,6 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import Image from "next/image";
 import { GlobalContext } from "@/context/GlobalContext";
 
-// Sample data: 10 correct, 5 incorrect
 const COLORS = ["#6366F1", "#CBD5E1"];
 const QuestionAnalysis = () => {
   const { updatedScore } = useContext(GlobalContext);
