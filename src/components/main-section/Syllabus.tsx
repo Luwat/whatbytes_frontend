@@ -50,7 +50,7 @@ const syllabusProgress = [
 ];
 const Syllabus = () => {
   return (
-    <CardWrapper className="py-8">
+    <CardWrapper className="py-8 mr-3">
       <div>
         <h3 className="mb-8 font-bold">Syllabus Wise Analysis</h3>
         <ul className="flex flex-col  gap-8">
