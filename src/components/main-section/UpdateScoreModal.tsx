@@ -16,15 +16,8 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { GlobalContext, UpdateType } from "@/context/GlobalContext";
 
-// const updates = [
-//   { id: "1", title: "Rank", value: "1" },
-//   { id: "2", title: "Percentile", value: "30" },
-//   { id: "3", title: "Current Score (out of 15)", value: "10" },
-// ];
 const UpdateScoreModal = () => {
   const { error, setError, updates, changeValues, updateValues } = useContext(GlobalContext);
-
-
   return (
     <Dialog>
       <DialogTrigger asChild>
