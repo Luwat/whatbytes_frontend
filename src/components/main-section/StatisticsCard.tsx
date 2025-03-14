@@ -1,13 +1,18 @@
+'use client';
+
 import React from "react";
 import CardWrapper from "./CardWrapper";
+import { useContext } from "react";
+import { GlobalContext } from "@/context/GlobalContext";
 
-const contents = [
-  { icon: "🏆", title: "1", text: "Your Rank" },
-  { icon: "📋", title: "30%", text: "Percentile" },
-  { icon: "✅", title: "10 / 15", text: "Correct Answers" },
-];
 
 const StatisticsCard = () => {
+  const { updatedRank, updatedPercentile, updatedScore } = useContext(GlobalContext)
+  const contents = [
+    { icon: "🏆", title: updatedRank, text: "Your Rank" },
+    { icon: "📋", title: updatedPercentile, text: "Percentile" },
+    { icon: "✅", title: `${updatedScore}/15`, text: "Correct Answers" },
+  ];
   return (
     <CardWrapper>
       <h1 className="font-bold text-xl">Quick Statistics</h1>

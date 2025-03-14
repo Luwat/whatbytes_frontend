@@ -1,8 +1,8 @@
 import React from "react";
 // import { CardContent } from "../ui/card";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import CardWrapper from "./CardWrapper";
+import UpdateScoreModal from "./UpdateScoreModal";
 
 const TestSummaryCard = () => {
   return (
@@ -13,7 +13,7 @@ const TestSummaryCard = () => {
           <h2 className="font-bold text-lg">Hyper Text Markup Language</h2>
           <p>Questions: 08 | Duration: 15 mins | Submitted on 5 June 2021</p>
         </div>
-        <Button className="bg-[#132277] hover:bg-[#13285F] px-6 py-4">Update</Button>
+        <UpdateScoreModal />
       </div>
     </CardWrapper>
   );

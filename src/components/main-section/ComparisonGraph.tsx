@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import CardWrapper from "./CardWrapper";
 import {
   LineChart,
@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Dot,
 } from "recharts";
+import { GlobalContext } from "@/context/GlobalContext";
 
 const data = [
   { percentile: 0, students: 1 },
@@ -22,15 +23,15 @@ const data = [
   { percentile: 100, students: 1 },
 ];
 
-const userPercentile = 30;
 
 const ComparisonGraph = () => {
+  const { updatedPercentile } = useContext(GlobalContext)
   return (
     <CardWrapper>
       <div>
         <h6 className="font-semibold">Comparison Graph</h6>
         <p className="text-sm text-gray-600 mt-1">
-          <strong>You scored 30% percentile</strong> which is lower than the
+          <strong>You scored {updatedPercentile}% percentile</strong> which is lower than the
           average percentile 72% of all the engineers who took this assessment
         </p>
         <div className="mt-4 h-60 w-full">
@@ -57,11 +58,12 @@ const ComparisonGraph = () => {
                   const { cx, cy, payload } = props;
                   return (
                     <Dot
+                      key={payload.percentile}
                       cx={cx}
                       cy={cy}
-                      r={payload.percentile === userPercentile ? 6 : 3}
+                      r={payload.percentile === updatedPercentile ? 6 : 3}
                       fill={
-                        payload.percentile === userPercentile
+                        payload.percentile === updatedPercentile
                           ? "#6366F1"
                           : "#A5B4FC"
                       }

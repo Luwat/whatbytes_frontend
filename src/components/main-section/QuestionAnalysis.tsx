@@ -1,27 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import CardWrapper from "./CardWrapper";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import Image from "next/image";
+import { GlobalContext } from "@/context/GlobalContext";
 
 // Sample data: 10 correct, 5 incorrect
-const data = [
-  { name: "Correct", value: 10 },
-  { name: "Incorrect", value: 5 },
-];
 const COLORS = ["#6366F1", "#CBD5E1"];
 const QuestionAnalysis = () => {
+  const { updatedScore } = useContext(GlobalContext);
+  const correctScore = Number(updatedScore)
+  const incorrectScore = 15 - correctScore;
+  const data = [
+    { name: "Correct", value: correctScore },
+    { name: "Incorrect", value: incorrectScore },
+  ];
   return (
     <CardWrapper>
       <div>
         <div className="flex justify-between">
         <h6 className="font-semibold">Question Analysis</h6>
-        <p className="text-blue-500 font-semibold text-lg">10/15</p>
+        <p className="text-blue-500 font-semibold text-lg">{updatedScore}/15</p>
         </div>
         {/* Description */}
         <p className="text-sm text-gray-600 mt-2">
-          <strong>You scored 10 question correct out of 15.</strong> However it
+          <strong>You scored {updatedScore} question correct out of 15.</strong> However it
           still needs some improvements
         </p>
 
