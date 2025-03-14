@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center h-28 w-full p-5 border">
+    <header className="flex justify-between items-center h-28 w-full p-5 border-b">
       <div className="flex items-center">
         <Image
           src={"https://i.postimg.cc/gcVsypZn/Whatbytes-logo-2.png"}

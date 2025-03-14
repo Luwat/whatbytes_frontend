@@ -4,7 +4,7 @@ import Sidebar from "@/components/Sidebar";
 
 export default function Home() {
   return (
-    <main className="w-full h-screen">
+    <main className="w-full min-h-screen overflow-x-hidden">
       <Header />
       <section className="flex">
       <Sidebar />
