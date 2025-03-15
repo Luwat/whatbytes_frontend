@@ -32,13 +32,13 @@ const syllabusProgress = [
 const Syllabus = () => {
   return (
     <CardWrapper className="py-8 md:mr-3">
-      <div>
+      <div className="w-full px-4">
         <h3 className="mb-8 font-bold">Syllabus Wise Analysis</h3>
-        <ul className="flex flex-col  gap-8">
+        <ul className="flex flex-col justify-between  gap-8">
           {syllabusProgress.map((progress) => (
             <li key={progress.label}>
               <p className="mb-3">{progress.label}</p>
-              <div className="flex items-center gap-8">
+              <div className=" flex justify-between items-center gap-8">
                 <Progress
                   value={progress.progress}
                   max={100}
