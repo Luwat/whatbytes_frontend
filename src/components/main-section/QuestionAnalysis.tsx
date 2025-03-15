@@ -16,7 +16,7 @@ const QuestionAnalysis = () => {
     { name: "Incorrect", value: incorrectScore },
   ];
   return (
-    <CardWrapper>
+    <CardWrapper className="py-8 md:mr-3">
       <div>
         <div className="flex justify-between">
         <h6 className="font-semibold">Question Analysis</h6>
