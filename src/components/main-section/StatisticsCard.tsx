@@ -15,14 +15,14 @@ const StatisticsCard = () => {
   ];
   return (
     <CardWrapper>
-      <h1 className="font-bold text-xl">Quick Statistics</h1>
-      <ul className="flex items-center gap-2 justify-around">
+      <h1 className="font-bold md:text-xl">Quick Statistics</h1>
+      <ul className="sm:flex items-center gap-2 justify-around text-xs md:text-base">
         {contents.map((content, index) => (
-          <li key={index} className={`flex items-center gap-2 py-2 pr-6 ${index < contents.length -1 && 'border-r'}`}>
-            <div className="size-12 rounded-full border border-[#F0F2F5] flex items-center justify-center bg-[#F4F6F8] m-3"><span>{content.icon}</span></div>
+          <li key={index} className={`flex items-center gap-2 py-2 md:pr-6 ${index < contents.length -1 && 'md:border-r'}`}>
+            <div className="size-6 md:size-12 rounded-full border border-[#F0F2F5] flex items-center justify-center bg-[#F4F6F8] m-1 md:m-3"><span>{content.icon}</span></div>
             <div>
-              <h2 className="text-lg font-bold">{content.title}</h2>
-              <p className="uppercase text-[#9197A0]">{content.text}</p>
+              <h2 className="md:text-lg font-bold">{content.title}</h2>
+              <p className="uppercase text-xs md:text-base text-[#9197A0]">{content.text}</p>
             </div>
           </li>
         ))}
