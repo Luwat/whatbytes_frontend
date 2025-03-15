@@ -29,52 +29,6 @@ const syllabusProgress = [
   },
 ];
 
-// const syllabusProgress = [
-//   {
-//     label: "HTML Tools, Forms, History",
-//     progress: (
-//       <Progress
-//         value={80}
-//         max={100}
-//         className="[&>*]:bg-[#3A7DF4] bg-[#EAF2FE]"
-//       />
-//     ),
-//     percent: "80%",
-//   },
-//   {
-//     label: "Tags & References in HTML",
-//     progress: (
-//       <Progress
-//         value={60}
-//         max={100}
-//         className="[&>*]:bg-[#FF8339] bg-[#EAF2FE]"
-//       />
-//     ),
-//     percent: "60%",
-//   },
-//   {
-//     label: "Tables & References in HTML",
-//     progress: (
-//       <Progress
-//         value={24}
-//         max={100}
-//         className="[&>*]:bg-[#FA5352] bg-[#EAF2FE]"
-//       />
-//     ),
-//     percent: "24%",
-//   },
-//   {
-//     label: "Tables & CSS Basics",
-//     progress: (
-//       <Progress
-//         value={96}
-//         max={100}
-//         className="[&>*]:bg-[#28C064] bg-[#EAF2FE]"
-//       />
-//     ),
-//     percent: "96%",
-//   },
-// ];
 const Syllabus = () => {
   return (
     <CardWrapper className="py-8 md:mr-3">
