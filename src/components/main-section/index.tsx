@@ -15,7 +15,7 @@ const MainSection = () => {
             <StatisticsCard />
             <ComparisonGraph />
           </div>
-          <div className='flex flex-col'>
+          <div className='flex flex-col gap-5 p-6 md:pl-3'>
             <Syllabus />
             <QuestionAnalysis />
           </div>
