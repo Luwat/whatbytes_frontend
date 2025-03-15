@@ -4,16 +4,16 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center h-28 w-full p-5 border-b">
+    <header className="flex justify-between items-center md:h-28 w-full p-5 border-b">
       <div className="flex items-center">
         <Image
           src={"https://i.postimg.cc/gcVsypZn/Whatbytes-logo-2.png"}
           alt=""
           width={300}
           height={300}
-          className="size-16"
+          className="size-10 md:size-16"
         />
-        <h1 className="text-4xl font-bold">WhatBytes</h1>
+        <h1 className="md:text-2xl xl:text-4xl font-bold">WhatBytes</h1>
       </div>
         <Button variant={"outline"}>
           <Image
