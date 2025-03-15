@@ -5,8 +5,8 @@ import UpdateScoreModal from "./UpdateScoreModal";
 
 const TestSummaryCard = () => {
   return (
-    <CardWrapper>
-      <div className="sm:flex align-center gap-3">
+    <CardWrapper className="md:-mt-24">
+      <div className="sm:flex align-center gap-x-3">
         <div className="flex justify-center items-center">
           <Image
             src={"https://i.postimg.cc/J4wsZRYv/HTML5-Logo-256.png"}
