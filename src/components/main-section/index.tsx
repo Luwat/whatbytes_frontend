@@ -9,7 +9,7 @@ const MainSection = () => {
   return (
     <section className='my-6'>
         <h3 className='ml-6'>Skill Test</h3>
-        <section className='flex justify-between flex-wrap'>
+        <section className='md:flex justify-between flex-wrap'>
           <div className='flex flex-col w-3/5'>
             <TestSummaryCard />
             <StatisticsCard />

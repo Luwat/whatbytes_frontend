@@ -10,8 +10,8 @@ const navLinks = [
 
 const Sidebar = () => {
   return (
-    <section className="min-h-screen w-1/5 border-r py-12">
-      <ul className="flex flex-col gap-12 p-5">
+    <section className="md:min-h-screen md:w-1/5 border-r py-12">
+      <ul className="flex md:flex-col justify-around gap-5 md:justify-start md:gap-12 p-5">
         {navLinks.map(link => (
             <li key={link.label}>
                 <Link href={link.href}>

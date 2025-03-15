@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen md:overflow-x-hidden">
       <Header />
-      <section className="flex">
+      <section className="md:flex">
       <Sidebar />
       <MainSection />
       </section>
